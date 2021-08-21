@@ -1,2 +1,10 @@
-all:
-	g++ -Isrc/Include -Lsrc/lib -o ertris main.cc -lmingw32 -lSDL2main -lSDL2
+LIBS = -LSDL2main -LSDL2
+
+OBJ = main.o RenderWindow.o
+
+all:compile link
+
+compile:
+	g++ -c src/*.cc $(FLAGS)
+link:
+	g++ $(OBJ) -o bun/Ertris.exe $(LIBS)
